@@ -1,5 +1,4 @@
-
-class Cafe {
+public class Cafe {
     private String nombre;
     private String region;
     private float precioPorKilo;
@@ -26,5 +25,19 @@ class Cafe {
 
     public void actualizarCantidad(float nuevaCantidad) {
         this.cantidadEnKilos = nuevaCantidad;
+    }
+
+    //Nuevo método solicitado
+    public void aplicarDescuento(double porcentaje) {
+        if (porcentaje < 0 || porcentaje > 100) {
+            System.out.println("Porcentaje inválido.");
+            return;
+        }
+
+        double descuento = precioPorKilo * (porcentaje / 100);
+        precioPorKilo -= descuento;
+
+        System.out.println("Descuento aplicado: " + porcentaje + "%");
+        System.out.println("Nuevo precio por kilo: " + precioPorKilo + " COP");
     }
 }
